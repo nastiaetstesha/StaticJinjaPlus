@@ -4,6 +4,10 @@
 ## Как получить checksum
 
 `curl -sL https://github.com/MrDave/StaticJinjaPlus/archive/refs/tags/<VERSION>.zip | sha256sum`
+APP_VERSION=0.1.1
+`sha256:47fe12da6118698bbea0ec1bb6f174b9b33540c1643119d41dd2046d2f37e6c7`
+APP_VERSION=0.1.0
+`sha256:86f76c444685080a20432a31980d87b6976af2ec267f0d8c951642dbfa57c8ce`
 
 ## 📦 Сборка образов
 
@@ -49,3 +53,23 @@ docker push nastiaetstesha/static-jinja-plus:develop-slim
 docker run -it nastiaetstesha/static-jinja-plus:0.1.1
 docker run -it nastiaetstesha/static-jinja-plus:develop
 ```
+
+### Протестировать загрузку и запуск каждого образа с DockerHub
+Для каждого образа:
+
+```
+docker pull nastiaetstesha/static-jinja-plus:<tag>
+docker run --rm -it nastiaetstesha/static-jinja-plus:<tag>
+```
+##### tags 
+- 0.1.0
+
+- 0.1.1
+
+- 0.1.1-slim
+
+- develop
+
+- develop-slim
+
+- latest

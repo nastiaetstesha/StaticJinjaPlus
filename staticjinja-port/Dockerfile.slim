@@ -11,15 +11,15 @@ RUN apt-get update && apt-get install -y \
 
 WORKDIR /app
 
-ADD https://github.com/MrDave/StaticJinjaPlus/archive/refs/heads/main.zip /tmp/app.zip
-
-# ADD --checksum=sha256:47fe12da6118698bbea0ec1bb6f174b9b33540c1643119d41dd2046d2f37e6c7 \
+# ADD https://github.com/MrDave/StaticJinjaPlus/archive/refs/heads/main.zip /tmp/app.zip
+# ADD --checksum=sha256:47fe12da6118698bbea0ec1bb6f174b9b33540c1643119d41dd2046d2f37e6c7\
 #     https://github.com/MrDave/StaticJinjaPlus/archive/refs/tags/${APP_VERSION}.zip /tmp/app.zip
 
+
 RUN unzip /tmp/app.zip && \
-    mv StaticJinjaPlus-${APP_VERSION}/* . && \
+    mv StaticJinjaPlus-${APP_VERSION}*/* . && \
     pip install --no-cache-dir --upgrade pip && \
     pip install --no-cache-dir -r requirements.txt && \
     rm -rf /tmp/app.zip StaticJinjaPlus-${APP_VERSION}
 
-CMD ["python", "main.py"]
+CMD ["python3", "main.py"]
